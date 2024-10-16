@@ -48,7 +48,7 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskVH>() {
        }
 
 
-
+// recibi una posiciòn que es un valor nùmerico
         override fun onClick(p0: View?) {
           seletedTask.value = mlistTask[adapterPosition]
         }
@@ -64,7 +64,7 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskVH>() {
     override fun getItemCount(): Int = mlistTask.size
 
     override fun onBindViewHolder(holder: TaskVH, position: Int) {
-     val task = mlistTask [position]
+        val task = mlistTask [position]
         holder.bind(task)
 
 

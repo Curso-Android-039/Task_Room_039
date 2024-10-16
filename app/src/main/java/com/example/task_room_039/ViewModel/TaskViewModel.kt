@@ -1,7 +1,6 @@
 package com.example.task_room_039.ViewModel
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -43,14 +42,21 @@ class TaskViewModel(application : Application) :AndroidViewModel(application){
         repository.deleteAllTask()
     }
 
+    // update
+
+    fun updateTask(task: Task)= viewModelScope.launch {
+        repository.updateTask(task)
+    }
+
+
 
     // recibe el objeto seleccionado lo envuelve en liveDATA para poder observarlo
 
     private var selectedTask : MutableLiveData<Task> = MutableLiveData()
 
 
-    // va a servir cuando selecciono una tarea y la envia
-    fun selected(task: Task){
+    // va a saber cuando selecciono una tarea y la envia
+    fun selected(task: Task?){
         selectedTask.value = task
 
     }
